@@ -12,7 +12,7 @@ form.addEventListener('submit', async function (e) {
 
     // console.log(formValue);
     try {
-        var results = await axios({
+        await axios({
             method: "POST",
             url: 'http://localhost:3000/register',
             data: formValue,

@@ -12,14 +12,12 @@ form.addEventListener('submit', async function (e) {
 
     // console.log(formValue);
     try {
-        var results = await axios({
+        await axios({
             method: "POST",
             url: 'http://localhost:3000/login',
             data: formValue,
             headers: { "Content-Type": "application/json" },
         });
-
-        // console.log(results.data);
 
         location = 'index.html?msg=2';
     } catch (error) {
