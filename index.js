@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const jwt = require('jsonwebtoken');
 const port = 3000;
 
 app.use(express.json());
@@ -34,24 +35,43 @@ app.post('/register', (req, res) => {
 
 app.post('/login', (req, res) => {
     var user = req.body;
-    var check = false;
+    var userLogin;
 
     for (const el of users) {
         if (user.username === el.username
             && user.password === el.password) {
-            check = true;
+            userLogin = el;
         }
     }
 
-    if (check) {
-        res.status(200).send({ status: 'OK' });
+    if (userLogin) {
+        const token = jwt.sign({ username: user.username }, 'secret_key', {
+            expiresIn: '600000'//10 phút
+        });
+        const { password, ...userWithoutPassword } = userLogin;
+        var result = {
+            ...userWithoutPassword,
+            token
+        }
+        res.status(200).send(result);
     } else {
         res.status(500).send({ status: 'NOK' });
     }
 })
 
 app.get('/users', (req, res) => {
-    res.send(users);
+    const token = req.headers['authorization'].slice(7);
+    jwt.verify(token, 'secret_key',
+        (err, decoded) => {
+            if (err) {
+                console.log('Lỗi xác thực:', err.message);
+                res.status(500).json({ message: err.message });
+            } else {
+                // console.log('decoded: ', decoded);
+                res.send(users);
+            };
+        });
+
 })
 
 app.listen(port, () => {

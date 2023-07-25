@@ -11,9 +11,16 @@
 
 <body>
     <h1>Home page</h1>
-    <div id="table"></div>
-    <a href="register.html">Đăng ký</a><br>
-    <a href="login.html">Đăng nhập</a>
+    <div id="listUsers" style="display: none;">
+        <div id="table"></div>
+        <button onclick="logout()">Thoát</button><br>
+    </div>
+
+    <div id="btn" style="display: none;">
+        <button><a href="register.html">Đăng ký</a></button><br>
+        <button><a href="login.html">Đăng nhập</a></button><br>
+    </div>
+
     <p id="msg"></p>
 
     <script src="lib/axios.min.js"></script>

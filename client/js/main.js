@@ -1,9 +1,26 @@
-const table = document.getElementById("table");
+var currentUser = localStorage.getItem('currentUser');
+currentUser = JSON.parse(currentUser);
+if (currentUser) {
+    // Nếu đã đăng nhập thì hiển thị table
+    var listElement = document.querySelector('#listUsers');
+    listElement.style = 'display: block';
+    getData();
+
+} else {
+    // Nếu chưa đăng nhập thì hiển thị nút
+    var btnElement = document.querySelector('#btn');
+    btnElement.style = 'display: block';
+}
 
 async function getData() {
+    const table = document.getElementById("table");
 
     try {
-        var listUsers = await axios.get('http://localhost:3000/users');
+        var listUsers = await axios({
+            method: "GET",
+            url: "http://localhost:3000/users",
+            headers: { Authorization: `Bearer ${currentUser.token}` },
+        });
         listUsers = listUsers.data;
 
         var htmls = `
@@ -29,7 +46,10 @@ async function getData() {
     }
 }
 
-getData();
+function logout() {
+    localStorage.removeItem('currentUser');
+    location.reload();
+}
 
 function getParameterByName(name, url = location.href) {
     name = name.replace(/[\[\]]/g, '\\$&');
