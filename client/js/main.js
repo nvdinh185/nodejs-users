@@ -46,6 +46,4 @@ var msgElement = document.querySelector('#msg');
 msgElement.setAttribute('style', 'color: green; background: yellow');
 if (msg === '1') {
     msgElement.innerText = 'Đăng ký thành công!';
-} else if (msg === '2') {
-    msgElement.innerText = 'Đăng nhập thành công!';
 }

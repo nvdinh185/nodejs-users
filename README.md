@@ -13,12 +13,3 @@
 
 - Nếu đăng ký thành công thì chuyển sang trang chủ và hiển thị thông báo:
 ![](images/register_ok.jpg)
-
-4. Chọn chức năng Đăng nhập ở trang chủ, nhập thông tin username, password của user muốn đăng nhập
-
-- Nếu đăng nhập với user chưa tồn tại thì hiển thị thông báo lỗi:
-
-![](images/login_error.jpg)
-
-- Nếu đăng nhập thành công thì chuyển sang trang chủ và hiển thị thông báo:
-![](images/login_ok.jpg)
