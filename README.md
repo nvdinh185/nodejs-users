@@ -1,4 +1,4 @@
-# Chương trình mô phỏng chức năng Đăng ký user và Đăng nhập
+# Chương trình mô phỏng chức năng Đăng ký user
 
 1. Chạy dòng lệnh **npm start** để khởi chạy server => file index.js
 
