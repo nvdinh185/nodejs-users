@@ -18,8 +18,7 @@ if (localStorage.getItem('currentUser')) {
             var result = await axios({
                 method: "POST",
                 url: 'http://localhost:3000/login',
-                data: formValue,
-                headers: { "Content-Type": "application/json" },
+                data: formValue
             });
             // console.log(result);
             // handle success

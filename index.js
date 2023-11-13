@@ -37,6 +37,7 @@ app.post('/login', (req, res) => {
     var user = req.body;
     var userLogin;
 
+    // Lặp danh sách user để kiểm tra xem có tồn tại userLogin không?
     for (const el of users) {
         if (user.username === el.username
             && user.password === el.password) {
@@ -48,9 +49,9 @@ app.post('/login', (req, res) => {
         const token = jwt.sign({ username: user.username }, 'secret_key', {
             expiresIn: '600000'//10 phút
         });
-        const { password, ...userWithoutPassword } = userLogin;
+
         var result = {
-            ...userWithoutPassword,
+            ...userLogin,
             token
         }
         res.status(200).send(result);
@@ -71,7 +72,6 @@ app.get('/users', (req, res) => {
                 res.send(users);
             };
         });
-
 })
 
 app.listen(port, () => {

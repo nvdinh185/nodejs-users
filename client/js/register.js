@@ -18,8 +18,7 @@ if (localStorage.getItem('currentUser')) {
             await axios({
                 method: "POST",
                 url: 'http://localhost:3000/register',
-                data: formValue,
-                headers: { "Content-Type": "application/json" },
+                data: formValue
             });
 
             location = 'index.html?msg=1';

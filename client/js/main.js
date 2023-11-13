@@ -48,7 +48,7 @@ async function getData() {
 
 function logout() {
     localStorage.removeItem('currentUser');
-    location.reload();
+    location = 'index.html';
 }
 
 function getParameterByName(name, url = location.href) {
