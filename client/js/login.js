@@ -1,9 +1,9 @@
 if (localStorage.getItem('currentUser')) {
     location = 'index.html';
 } else {
-    var form = document.forms['login-form'];
+    var form = $('#login-form');
 
-    form.addEventListener('submit', async function (e) {
+    form.on('submit', async function (e) {
         e.preventDefault();
 
         const formValue = {};
@@ -25,8 +25,8 @@ if (localStorage.getItem('currentUser')) {
             localStorage.setItem('currentUser', JSON.stringify(result.data));
             location = 'index.html?msg=2';
         } catch (error) {
-            var errorElement = document.querySelector('.error');
-            errorElement.innerHTML = '<p style="color: red; background: yellow">Xảy ra lỗi!</p>';
+            var errorElement = $('.error');
+            errorElement.html('<p style="color: red; font-style: italic">Xảy ra lỗi khi đăng nhập!</p>');
         }
     })
 }

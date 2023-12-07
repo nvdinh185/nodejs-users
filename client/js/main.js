@@ -2,18 +2,18 @@ var currentUser = localStorage.getItem('currentUser');
 currentUser = JSON.parse(currentUser);
 if (currentUser) {
     // Nếu đã đăng nhập thì hiển thị table
-    var listElement = document.querySelector('#listUsers');
-    listElement.style = 'display: block';
+    var listElement = $('#listUsers');
+    listElement.attr('style', 'display: block');
     getData();
 
 } else {
     // Nếu chưa đăng nhập thì hiển thị nút
-    var btnElement = document.querySelector('#btn');
-    btnElement.style = 'display: block';
+    var btnElement = $('#btn');
+    btnElement.attr('style', 'display: block');
 }
 
 async function getData() {
-    const table = document.getElementById("table");
+    const table = $("#table");
 
     try {
         var listUsers = await axios({
@@ -38,11 +38,11 @@ async function getData() {
                     </tr>`
         }
         htmls += `</table>`
-        table.innerHTML = htmls;
+        table.html(htmls);
 
     } catch (err) {
         console.log('Lỗi ' + err);
-        table.innerHTML = '<p style="color: red; background: yellow">Xảy ra lỗi!</p>';
+        table.html('<p style="color: red; font-style: italic">Xảy ra lỗi khi lấy dữ liệu!</p>');
     }
 }
 
@@ -62,10 +62,10 @@ function getParameterByName(name, url = location.href) {
 
 var msg = getParameterByName('msg');
 
-var msgElement = document.querySelector('#msg');
-msgElement.setAttribute('style', 'color: green; background: yellow');
+var msgElement = $('#msg');
+msgElement.attr('style', 'color: green; font-style: italic');
 if (msg === '1') {
-    msgElement.innerText = 'Đăng ký thành công!';
+    msgElement.text('Đăng ký thành công!');
 } else if (msg === '2') {
-    msgElement.innerText = 'Đăng nhập thành công!';
+    msgElement.text('Đăng nhập thành công!');
 }
