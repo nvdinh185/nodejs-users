@@ -1,4 +1,4 @@
-const table = document.getElementById("table");
+const table = $("#table");
 
 async function getData() {
 
@@ -21,11 +21,11 @@ async function getData() {
                     </tr>`
         }
         htmls += `</table>`
-        table.innerHTML = htmls;
+        table.html(htmls);
 
     } catch (err) {
         console.log('Lỗi ' + err);
-        table.innerHTML = '<p style="color: red; background: yellow">Xảy ra lỗi!</p>';
+        table.html('<p style="color: red; font-style: italic">Xảy ra lỗi khi lấy dữ liệu!</p>');
     }
 }
 
@@ -42,8 +42,8 @@ function getParameterByName(name, url = location.href) {
 
 var msg = getParameterByName('msg');
 
-var msgElement = document.querySelector('#msg');
-msgElement.setAttribute('style', 'color: green; background: yellow');
+var msgElement = $('#msg');
+msgElement.attr('style', 'color: green; font-style: italic');
 if (msg === '1') {
-    msgElement.innerText = 'Đăng ký thành công!';
+    msgElement.text('Đăng ký thành công!');
 }

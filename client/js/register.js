@@ -1,6 +1,6 @@
-var form = document.forms['register-form'];
+var form = $('#register-form');
 
-form.addEventListener('submit', async function (e) {
+form.on('submit', async function (e) {
     e.preventDefault();
 
     const formValue = {};
@@ -15,13 +15,12 @@ form.addEventListener('submit', async function (e) {
         await axios({
             method: "POST",
             url: 'http://localhost:3000/register',
-            data: formValue,
-            headers: { "Content-Type": "application/json" },
+            data: formValue
         });
 
         location = 'index.html?msg=1';
     } catch (error) {
-        var errorElement = document.querySelector('.error');
-        errorElement.innerHTML = '<p style="color: red; background: yellow">Xảy ra lỗi!</p>';
+        var errorElement = $('.error');
+        errorElement.html('<p style="color: red; ; font-style: italic">Xảy ra lỗi khi thêm!</p>');
     }
 })
