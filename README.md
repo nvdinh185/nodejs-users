@@ -7,9 +7,5 @@
 
 3. Chọn chức năng Đăng ký ở trang chủ, nhập thông tin username, password và fullname của user muốn đăng ký
 
-- Nếu đăng ký user đã tồn tại thì hiển thị thông báo lỗi:
-
-![](images/register_error.jpg)
-
 - Nếu đăng ký thành công thì chuyển sang trang chủ và hiển thị thông báo:
 ![](images/register_ok.jpg)
