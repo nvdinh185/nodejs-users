@@ -43,18 +43,72 @@ render(listUsers);
 // ==================Xử lý thêm 1 user==============================
 var form = $('#register-form');
 
+// Hàm để xử lý khi blur hoặc nhập vào ô input
+function handleBlurInput(input) {
+    var errorElement = input.parent().children()[3];
+    input.blur(function () {
+        if (input.val().trim() === '') {
+            $(errorElement).attr('style', 'color: red; font-style: italic;');
+            $(errorElement).text('Yêu cầu nhập!');
+            input.addClass('invalid');
+        }
+    })
+
+    input.on('input', function () {
+        $(errorElement).attr('style', 'display: none;');
+        input.removeClass('invalid');
+    })
+}
+
+var usernameElement = $("#username");
+var passwordElement = $("#password");
+var fullnameElement = $("#fullname");
+
+handleBlurInput(usernameElement);
+handleBlurInput(passwordElement);
+handleBlurInput(fullnameElement);
+
+// Xử lý submit form
 form.on('submit', async function (e) {
     e.preventDefault();
 
-    // Lấy dữ liệu nhập vào từ form
-    const formValue = {};
-    for (const el of e.target) {
-        if (el.name) {
-            formValue[el.name] = el.value;
+    // Hàm kiểm tra yêu cầu nhập ô input
+    function isRequired(input) {
+        var errorElement = input.parent().children()[3];
+        if (input.val().trim() === '') {
+            $(errorElement).attr('style', 'color: red; font-style: italic;');
+            $(errorElement).text('Yêu cầu nhập!');
+            input.addClass('invalid');
+            return true;
         }
     }
 
-    // console.log(formValue);
-    listUsers.push(formValue);
-    render(listUsers);
+    var check = true;
+    if (isRequired(usernameElement)) {
+        check = false;
+    }
+    if (isRequired(passwordElement)) {
+        check = false;
+    }
+    if (isRequired(fullnameElement)) {
+        check = false;
+    }
+
+    if (check) {
+        // Lấy dữ liệu nhập vào từ form
+        const formValue = {};
+        for (const el of e.target) {
+            if (el.name) {
+                formValue[el.name] = el.value;
+            }
+        }
+
+        // console.log(formValue);
+        listUsers.push(formValue);
+        render(listUsers);
+
+        usernameElement.val('');
+        passwordElement.val('');
+        fullnameElement.val('');
+    }
 })
