@@ -13,7 +13,7 @@ var listUsers = [
     },
     {
         username: 'huong',
-        password: '456',
+        password: '789',
         fullname: 'Nguyen Thi Huong'
     }
 ]
