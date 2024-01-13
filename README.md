@@ -5,7 +5,7 @@
 2. Chạy file index.html bằng **Live Server** để truy cập trang Danh sách users
 ![](images/home.jpg)
 
-3. Chọn chức năng Đăng ký ở trang chủ, nhập thông tin username, password và fullname của user muốn đăng ký
+3. Chọn chức năng **Đăng ký** ở trang chủ, nhập thông tin username, password và fullname của user muốn đăng ký
 ![](images/register_form.jpg)
 
 - Nếu đăng ký thành công thì chuyển sang trang chủ và hiển thị thông báo:
