@@ -3,6 +3,7 @@ var form = $('#register-form');
 form.on('submit', async function (e) {
     e.preventDefault();
 
+    // Lấy dữ liệu nhập vào từ form
     const formValue = {};
     for (const el of e.target) {
         if (el.name) {

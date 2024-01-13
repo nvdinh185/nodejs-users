@@ -2,7 +2,7 @@
 
 1. Chạy dòng lệnh **npm start** để khởi chạy server => file index.js
 
-2. Truy cập trình duyệt ở địa chỉ http://localhost:3000/ để truy cập trang chủ
+2. Truy cập trình duyệt ở địa chỉ http://localhost:3000/ để truy cập trang Danh sách users
 ![](images/home.jpg)
 
 3. Chọn chức năng Đăng ký ở trang chủ, nhập thông tin username, password và fullname của user muốn đăng ký

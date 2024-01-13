@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+// middleware để chuyển từ form-data sang req.body (sử dụng js để post)
 app.use(express.json());
 
 const users = [
@@ -9,6 +10,16 @@ const users = [
         username: 'dinh',
         password: '123',
         fullname: 'Nguyen Van Dinh'
+    },
+    {
+        username: 'hoa',
+        password: '456',
+        fullname: 'Le Thi Hoa'
+    },
+    {
+        username: 'huong',
+        password: '456',
+        fullname: 'Nguyen Thi Huong'
     }
 ]
 
@@ -18,6 +29,7 @@ app.post('/register', (req, res) => {
     var user = req.body;
     var check = false;
 
+    // Kiểm tra xem thử user này đã tồn tại chưa?
     for (const el of users) {
         if (user.username === el.username) {
             check = true;
