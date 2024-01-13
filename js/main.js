@@ -18,10 +18,14 @@ var listUsers = [
     }
 ]
 
+// Viết code ở đây...
+
 // ==================Xử lý thêm 1 user==============================
 var form = $('#register-form');
 
 form.on('submit', async function (e) {
     e.preventDefault();
+
+    // Viết code ở đây...
 
 })
