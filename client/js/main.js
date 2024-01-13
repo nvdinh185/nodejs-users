@@ -10,6 +10,7 @@ async function getData() {
                 <table>        
                     <tr>
                             <th>Username</th>
+                            <th>Password</th>
                             <th>Fullname</th>
                     </tr>`
 
@@ -17,6 +18,7 @@ async function getData() {
             htmls += `
                     <tr>
                             <td>${us.username}</td>
+                            <td>${us.password}</td>
                             <td>${us.fullname}</td>
                     </tr>`
         }
