@@ -7,25 +7,28 @@ app.use(express.json());
 
 const users = [
     {
+        id: "715b-52b3-5a0-4e5a",
         username: 'dinh',
         password: '123',
         fullname: 'Nguyen Van Dinh'
     },
     {
+        id: "715b-52b3-5a0-4e5b",
         username: 'hoa',
         password: '456',
         fullname: 'Le Thi Hoa'
     },
     {
+        id: "715b-52b3-5a0-4e5c",
         username: 'huong',
-        password: '456',
+        password: '789',
         fullname: 'Nguyen Thi Huong'
     }
 ]
 
 app.use(express.static(__dirname + '/client'));
 
-app.post('/register', (req, res) => {
+app.post('/users', (req, res) => {
     var user = req.body;
     var check = false;
 

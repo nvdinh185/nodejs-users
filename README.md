@@ -5,7 +5,7 @@
 2. Truy cập trình duyệt ở địa chỉ http://localhost:3000/ để truy cập trang Danh sách users
 ![](images/home.jpg)
 
-3. Chọn chức năng Đăng ký ở trang chủ, nhập thông tin username, password và fullname của user muốn đăng ký
+3. Chọn chức năng **Đăng ký** ở trang chủ, nhập thông tin username, password và fullname của user muốn đăng ký
 
 - Nếu đăng ký user đã tồn tại thì hiển thị thông báo lỗi:
 
