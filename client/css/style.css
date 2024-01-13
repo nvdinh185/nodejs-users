@@ -26,3 +26,8 @@ tr:nth-child(even) {
 a {
     text-decoration: none;
 }
+
+.invalid {
+    border: 2px solid red;
+    border-radius: 5px;
+}
