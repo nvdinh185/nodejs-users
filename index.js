@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const port = 3000;
+
+app.use(cors());
 
 // middleware để chuyển từ form-data sang req.body (sử dụng js để post)
 app.use(express.json());
